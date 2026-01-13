@@ -28,27 +28,25 @@ html, body {
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-// --- LIMITI GEOGRAFICI VENEZIA (laguna inclusa) ---
+// ---------- LIMITI GEOGRAFICI VENEZIA ----------
 const VENEZIA_BOUNDS = [
-  [45.380, 12.250], // sud-ovest
-  [45.500, 12.450]  // nord-est
+  [45.39, 12.24], // sud-ovest
+  [45.50, 12.42]  // nord-est
 ];
 
-// --- MAPPA ---
+// ---------- MAPPA ----------
 const map = L.map('map', {
   maxZoom: 19,
-  minZoom: 11
+  minZoom: 12
 });
 
-// vista iniziale: TUTTA Venezia
 map.fitBounds(VENEZIA_BOUNDS);
 
-// tiles OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map);
 
-// --- MARKER DATI ---
+// ---------- MARKER DATI ----------
 const markersLayer = L.layerGroup().addTo(map);
 let allMarkers = [];
 
@@ -79,10 +77,10 @@ function updateMarkers() {
 
 map.on("zoomend", updateMarkers);
 
-// --- GEOLOCALIZZAZIONE ---
+// ---------- GEOLOCALIZZAZIONE ----------
 let userMarker = null;
 
-map.locate({watch: true, enableHighAccuracy: true});
+map.locate({ watch: true, enableHighAccuracy: true });
 
 map.on("locationfound", e => {
   if (userMarker) {
@@ -100,3 +98,4 @@ map.on("locationfound", e => {
 
 </body>
 </html>
+
