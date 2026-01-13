@@ -1,12 +1,11 @@
 {
   "name": "Venezia",
   "short_name": "Venezia",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/app_venezia/index.html",
+  "scope": "/app_venezia/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
-  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
